@@ -1,0 +1,22 @@
+{
+    "highscore_filename": "data/leaderboard.json",
+     "levels": [
+         [15, 15],
+         [10, 10],
+         [5, 5],
+         [20, 20],
+         [25, 25],
+         [18, 18],
+         [42, 42],
+         [15, 15],
+         [20, 20],
+         [42, 42]
+     ],
+     "lives": 3,
+     "pacgum": 42,
+     "points_per_pacgum": 10,
+     "points_per_super_pacgum": 50,
+     "points_per_ghost": 200,
+     "seed": 42,
+     "level_max_time": 90
+}
