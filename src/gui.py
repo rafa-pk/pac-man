@@ -1,5 +1,5 @@
 import pygame
-from .constants import FONT, LOGO, TILE, TOP, RIGHT, BOTTOM, LEFT, WALL_COLOR, WALL, MAZE_OFFSET, LOGO_COLOR
+from .constants import FONT, LOGO, PACMAN, TILE, TOP, RIGHT, BOTTOM, LEFT, WALL_COLOR, WALL, MAZE_OFFSET, LOGO_COLOR
 from src.game.scores import Scores
 
 
@@ -10,8 +10,10 @@ class GUI:
         self.screen = screen
         self.program = program
         self.logo = pygame.image.load(LOGO).convert_alpha()
+        self.player = pygame.image.load(PACMAN).convert_alpha()
         self.pacgum_sprite = self.make_circle_sprite(3, (255, 253, 208))
         self.super_sprite = self.make_circle_sprite(6, (255, 253, 208))
+        self.player_sprite = self.make_circle_sprite(TILE // 2 - 4, (255, 255, 0))
  
     def fill_circle(self, surface: pygame.Surface, color: tuple[int, int, int], cx: int, cy: int, radius: int) -> None:
 
@@ -140,14 +142,19 @@ class GUI:
             py = oy + y * TILE + (TILE - h_spg) // 2
             self.screen.blit(self.super_sprite, (px, py))
 
-    def draw_maze(self, maze_surface: pygame.Surface, available_pg: set[tuple[int, int]], available_spg: set[tuple[int, int]]) -> None:
+    def draw_maze(self, maze_surface: pygame.Surface) -> None:
     
         small_font = pygame.font.Font(FONT, 20)
 
         self.screen.fill((0, 0, 0))
         self.screen.blit(maze_surface, MAZE_OFFSET)
-        self.draw_pacgums(available_pg, available_spg)
         self.draw_cursor(80, 700, 20, (255, 253, 208))
         self.string_put(110, 703, (255, 253, 208), small_font, "Back")
 
+    def draw_player(self, pos: tuple[int, int]) -> None:
 
+        ox, oy = MAZE_OFFSET
+        w_player, h_player = self.player_sprite.get_size()
+        px = ox + pos[0] * TILE + (TILE - w_player)
+        py = oy + pos[1] * TILE + (TILE - h_player)
+        self.screen.blit(self.player_sprite, (px - 3, py))

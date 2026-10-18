@@ -54,4 +54,6 @@ class Gameplay:
 
     def draw(self) -> None:
 
-        self.gui.draw_maze(self.surface, self.level.available_pacgums, self.level.available_super_pacgums)  # , self.level.player_state)
+        self.gui.draw_maze(self.surface)
+        self.gui.draw_pacgums(self.level.available_pacgums, self.level.available_super_pacgums)
+        self.gui.draw_player(self.level.player.start_position)

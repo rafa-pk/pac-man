@@ -1,6 +1,6 @@
 from mazegenerator.mazegenerator import MazeGenerator
+from src.player import Player
 from src.parser import Config
-from src.gui import GUI
 import random
 
 
@@ -18,7 +18,8 @@ class Level:
         self.available_pacgums = self.pacgums
         self.super_pacgums = set(self.corners)
         self.available_super_pacgums = self.super_pacgums
-        self.player = Player()
+        self.player_start = self._find_maze_center()
+        self.player = Player(self.player_start)
 
     # def _place_player(self)
 
@@ -37,3 +38,18 @@ class Level:
             return set()
         step = len(candidates) / count
         return {candidates[int(i * step)] for i in range(count)}
+
+    def _find_maze_center(self) -> tuple[int, int]:
+
+        excluded = {*self.logo}
+
+        candidate = (self.dimensions[0] // 2, self.dimensions[1] // 2)
+        if candidate in excluded:
+            while candidate in excluded:
+                distance_x = self.dimension[0] - candidate[0]
+                distance_y = self.dimension[1] - candidate[1]
+                if distance_x > distance_y:
+                    candidate[0] += 1
+                else:
+                    candidate[1] += 1
+        return candidate

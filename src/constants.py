@@ -2,6 +2,7 @@
 
 FONT = "assets/Press_Start_2P/PressStart2P-Regular.ttf"
 LOGO = "assets/pacman_logo.png"
+PACMAN = "assets/pacman.png"
 # DEFAULT = [] (default config)
 TILE = 50
 TOP, RIGHT, BOTTOM, LEFT = 1, 2, 4, 8
