@@ -1,22 +1,25 @@
 {
+    # Pac-Man @ 42 configuration. Lines starting with # are comments.
+    # Keys, defaults and allowed values: see "Configuration" in README.md.
     "highscore_filename": "data/leaderboard.json",
-     "levels": [
-         [15, 15],
-         [10, 10],
-         [5, 5],
-         [20, 20],
-         [25, 25],
-         [18, 18],
-         [42, 42],
-         [15, 15],
-         [20, 20],
-         [42, 42]
-     ],
-     "lives": 3,
-     "pacgum": 42,
-     "points_per_pacgum": 10,
-     "points_per_super_pacgum": 50,
-     "points_per_ghost": 200,
-     "seed": 42,
-     "level_max_time": 90
+    # Maze size of each level, in cells (5 to 50), in play order
+    "levels": [
+        {"width": 15, "height": 15},
+        {"width": 10, "height": 10},
+        {"width": 5, "height": 5},
+        {"width": 20, "height": 20},
+        {"width": 25, "height": 25},
+        {"width": 18, "height": 18},
+        {"width": 42, "height": 42},
+        {"width": 15, "height": 15},
+        {"width": 20, "height": 20},
+        {"width": 42, "height": 42}
+    ],
+    "lives": 3,
+    "pacgum": 42,
+    "points_per_pacgum": 10,
+    "points_per_super_pacgum": 50,
+    "points_per_ghost": 200,
+    "seed": 42,
+    "level_max_time": 90
 }
